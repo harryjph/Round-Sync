@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.webkit.MimeTypeMap;
 import android.widget.Toast;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -683,6 +684,11 @@ public class Rclone {
 
         if(useMD5Sum){
             defaultParameter.add("--checksum");
+        }
+
+        if (localPath.equals("/storage/emulated/0")) {
+            defaultParameter.add("--exclude=/Android/data/**");
+            defaultParameter.add("--exclude=/Android/obb/**");
         }
 
         if (syncDirection == SyncDirectionObject.SYNC_LOCAL_TO_REMOTE) {
