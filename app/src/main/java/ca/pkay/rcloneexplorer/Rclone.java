@@ -689,6 +689,12 @@ public class Rclone {
         if (localPath.equals("/storage/emulated/0")) {
             defaultParameter.add("--exclude=/Android/data/**");
             defaultParameter.add("--exclude=/Android/obb/**");
+            defaultParameter.add("--exclude=/Pictures/.thumbnails/**");
+            defaultParameter.add("--exclude=/Movies/.thumbnails/**");
+            defaultParameter.add("--exclude=/Music/.thumbnails/**");
+            defaultParameter.add("--exclude=/.HhTjqSRo6dybqDAV2ImUSREmnZU=/**");
+            defaultParameter.add("--exclude=/.picker_transcoded/**");
+            defaultParameter.add("--exclude=/Documents/Ruthless/CrashReport/**");
         }
 
         if (syncDirection == SyncDirectionObject.SYNC_LOCAL_TO_REMOTE) {
